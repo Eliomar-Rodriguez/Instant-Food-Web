@@ -1,0 +1,68 @@
+<div ng-controller="pedidosController">
+<section class="content" >
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="pedido in listaPedidos">
+                <div class="card" >
+                    <div class="padreparalelos">
+                        <div  ng-click="">
+                            <h2 >
+                               Usuario:{{pedido.nombre_usuario}} </small>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <div style="float: left;display: inline-block">
+                            {{pedido.fecha}}
+                            <br>
+                            <button data-toggle="modal" data-target="#ModalDetalles" data-dismiss="modal" ng-click="verDetalles(pedido)">Gestionar pedido</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Task Info -->
+            <!-- Browser Usage -->
+        </div>
+    </div>
+</section>
+<div class="modal fade modal-margin" id="ModalDetalles" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <form class="modal-content"  >
+            <div class="modal-header bagTecBlue">
+                <h4 class=" whiteText" id="ModalVerDetalles">Gestion de pedido</h4>
+            </div>
+            <div class="modal-body" >
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table table-responsive table-advance table-hover">
+                                <table id="mytablep" class="table-responsive table-bordred table-striped">
+                                    <thead>
+                                    <th id="nombre_product">Nombre del producto</th>
+                                    <th id="category">Categoria</th>
+                                    <th id="quantity">Cantidad</th>
+                                    <th id="subtotal">Subtotal</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="detalle in listaDetalles">
+                                        <td >{{detalle.nombre_producto}}</td>
+                                        <td>{{detalle.nombre_categoria}}</td>
+                                        <td>{{detalle.cantidad}}</td>
+                                        <td>{{detalle.total}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <b>Total:</b>{{total}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="modificarPedido(1)" data-dismiss="modal">Aceptar pedido</button>
+                <button ng-click="modificarPedido(0)" data-dismiss="modal">Rechazar pedido</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

@@ -1,0 +1,148 @@
+<div>
+    <a class="btn-floating btn-sm " data-toggle="modal" data-target="#add"><i class="material-icons" style="cursor:pointer">add</i></a>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table table-responsive table-advance table-hover">
+                    <table id="mytable" class="table table-bordred table-striped">
+                        <thead style="background-color: #AEB6BF">
+                            <th id="name">Nombre</th>
+                            <th id="price">Precio</th>
+                            <th id="ingredientes">Ingredientes</th>
+                            <th id="categoria">Categoria</th>
+                            <th id="calorias">Cantidad de Calorias</th>
+                            <th id="image">Imagen</th>
+                            <th id="modificar">Acción</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="producto in listaProductos" style="background-color: #CCD1D1;">
+                                <td >{{producto.producto}}</td>
+                                <td>¢{{producto.precio}}</td>
+                                <td>{{producto.ingredientes}}</td>
+                                <td >{{producto.categoria}}</td>
+                                <td >{{producto.cantidadcalorias}}</td>
+                                <td>
+                                    <img src={{producto.imagen}} style="border-radius:5px; width: 30%;height: 30%">
+                                </td>
+                                <td>
+                                        <button class="btn btn-primary btn-xs"  data-target="#edit" ng-click="postProducto(producto)">
+                                            <span class="glyphicon glyphicon-pencil" ng-click="postProducto(producto)">
+                                                Editar
+                                            </span>
+                                        </button>
+
+                                        <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"ng-click="actualizarProducto(producto)" >
+                                            <span class="glyphicon glyphicon-trash"ng-click="actualizarProducto(producto)">
+                                                Delete
+                                            </span>
+                                        </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!--Vista de a�adir-->
+        <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="addProducto">Agregar producto</h4>
+                    </div>
+                    <div class="modal-body" >
+                        <table class="table table-responsive table-advance table-hover">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control " type="text" placeholder="Nombre del producto"ng-model="producto.nombre_producto">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control " type="text" placeholder="Precio" ng-model="producto.precio">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control " type="text" placeholder="Nombre de categoria"ng-model="producto.nombre_categoria">
+                                    </div>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="modal-footer " >
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"data-dismiss="modal" aria-hidden="true" ng-click="putProducto(producto)"><span class="glyphicon glyphicon-ok-sign" ng-click="putProducto(producto)" data-dismiss="modal" aria-hidden="true"></span>Agregar producto</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+
+        <!--Vista de modificar-->
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="add" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Headin">Modificar el producto</h4>
+                    </div>
+                    <div class="modal-body" >
+                        <table class="table table-responsive table-advance table-hover">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <input class="form-control " type="text" placeholder="producto.precio" ng-model="producto.precio">
+                                    </div>
+                                </td>
+                                <td>
+                                    <select id="s_cate_m">
+                                        <option ng-repeat="categoria in listaCategorias" value="{{categoria.nombre_categoria}}">
+                                            {{categoria.nombre_categoria}}
+                                        </option>
+                                    </select>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="modal-footer " >
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"data-dismiss="modal" aria-hidden="true" ng-click="modificarProducto(producto)"><span class="glyphicon glyphicon-ok-sign" ng-click="modificarProducto(producto)" data-dismiss="modal" aria-hidden="true"></span>Modificar</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+        <!--vista eliminar-->
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                        <h4 class="modal-title custom_align" id="Headi">Eliminar este elemento</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Estas seguro que deseas eliminar el producto?</div>
+
+                    </div>
+                    <div class="modal-footer ">
+                        <button type="button" class="btn btn-primary"  data-dismiss="modal"ng-click="deleteProducto(producto)"><span  ng-click="deleteProducto(producto)"class="glyphicon glyphicon-ok-sign"data-dismiss="modal"></span>Si</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"data-dismiss="modal"></span>No</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+    </div>
+</div>

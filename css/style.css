@@ -1,0 +1,176 @@
+body{
+    background-color:#fff;
+    webkit-font-smoothing: antialiased;
+    font: normal 14px Roboto,arial,sans-serif;
+}
+.thumb {
+     height: 75px;
+     border: 1px solid #000;
+     margin: 10px 5px 0 0;
+ }
+ul li{
+    background: black;
+    color:white;
+    display: inline;
+    padding: 0px;
+    width: 100%;
+    height: 3%;
+}
+li{
+    background:black;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+ul{
+    background:black;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+footer{
+    text-align: center;
+    padding: 2%;
+    color: white;
+    background: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 5%;
+    width: 100%;
+
+}
+header{
+    text-align: center;
+    padding: 2%;
+    color: white;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 15%;
+    margin-bottom: 2%;
+    position: fixed;
+    background-image:url('../img/icon.png');
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+a:link{
+    color:gray;
+    background-color: transparent;
+    text-decoration: none;
+
+}
+a:visited{
+    color:purple;
+    background-color: gray;
+    text-decoration: none;
+}
+a:hover{
+    color:transparent;
+    background-color: transparent;
+    text-decoration: none;
+
+}
+a:active{
+    color:blue;
+    background-color: transparent;
+    text-decoration: none;
+
+}
+.container {
+    margin-top: 10%;
+    padding: 25px;
+    position: fixed;
+}
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+.form-control {
+    border-radius: 10px;
+}
+.wrapper {
+    text-align: center;
+}
+.producto{
+    text-align: center;
+    margin-top: 15%;
+    height: 5%;
+    display: inline-block;
+    border: 1px solid black;
+    width: 50%;
+    color: black;
+    margin-left: 25%;
+}
+.btn_products{
+    background: black;
+}
+.bloque{
+    color: black;
+    display: inline-block;
+    float: left;
+}
+.t_products{
+    margin-bottom: 10%;
+}
+.menu_products{
+    float: left;
+    margin-top: 15%;
+    height: 10%;
+    display: inline-block;
+    width: 100%;
+    margin-left: 5%;
+    color: black;
+}
+.menu_products_c{
+    float: left;
+    margin-top: 8%;
+    height: 10%;
+    display: inline-block;
+    width: 100%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+    color: black;
+    position: fixed;
+}
+.contenedorEquipos{
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-bottom: 5%;
+    text-align: center;
+    overflow:scroll;
+    /*position: fixed;*/
+}
+.s_categorias{
+    margin-top: 25%;
+}
+.bombo{
+    background-image: url("../img/clasificado.jpg");
+    width: 50px;
+    height: 50px;
+}
+.anfitrion{
+    background-image: url("../img/anfitrion.jpg");
+    width: 50px;
+    height: 50px;
+}
+.elegido{
+     background-image: url("../img/seleccionado.jpg");
+     width: 50px;
+     height: 50px;
+ }
+.aelegido{
+    background-image: url("../img/anfitrionseleccionado.jpg");
+    width: 50px;
+    height: 50px;
+}

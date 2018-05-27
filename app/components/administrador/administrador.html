@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html ng-app="userModule">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title> Instant Food Admin</title>
+    <link rel="shortcut icon" href=".../">
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <!-- Compiled and minified CSS -->
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <!-- Bootstrap Core Css -->
+    <link href="../../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Waves Effect Css -->
+    <link href="../../../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <script src="../../../plugins/alertify/alertify.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../plugins/alertify/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="../../../plugins/alertify/css/themes/default.css">
+
+    <!-- Preloader Css -->
+    <link href="../../../plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+    <link href="../../../bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../../../assets/css/themes/theme-blue.css" rel="stylesheet" />
+</head>
+<body class="theme-blue">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="md-preloader pl-size-md">
+            <svg viewbox="0 0 75 75">
+                <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+            </svg>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<!-- #END# Overlay For Sidebars -->
+<!-- Search Bar -->
+<!-- #END# Search Bar -->
+<!-- Top Bar -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+            <a href="javascript:void(0);" class="bars"></a>
+            <a class="navbar-brand">
+            </a>
+        </div>
+        <ul style="text-align: center;">
+                <li class="tecTitles" style=" margin: 5%">
+                    <a href="#/pedidos">
+                        <i class="material-icons">assignment</i>
+                        <span><b>Pedidos</b></span>
+                    </a>
+                </li>
+            <li class="tecTitles" style=" margin: 5%">
+                <a href="#/productos">
+                    <i class="material-icons">fastfood</i>
+                    <span><b>Productos</b></span>
+                </a>
+            </li>
+            <li class="tecTitles" style=" margin: 5%">
+                <a href="../../../index.html">
+                    <i class="material-icons">exit_to_app</i>
+                    <span><b>Salir</b></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<!-- Se enlaza el controller al sidebar -->
+<!-- en el se encuentran los datos de usuario que aparecen en el sidebar -->
+
+<!-- Contenedor en el que se insertaran las vistas del ng-route -->
+<section class="content" ng-view>
+    <!--Los templates que se cargan aqui son los que se declaran en el archivo app.js -->
+</section>
+
+<!-- Dependencias de angular
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" ></script>
+-->
+<script type="text/javascript" src="../../../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../../../bower_components/angular-route/angular-route.min.js"></script>
+
+
+<!-- Funciones y variables compartidas entre madulos  -->
+<script src="../../../app.js"></script>
+<script src="pedidos/pedidosController.js"></script>
+<script src="pedidos/pedidosServices.js"></script>
+<script src="productos/productosController.js"></script>
+<script src="productos/productosServices.js"></script>
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap Core Js -->
+<script src="../../../plugins/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../../bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="../../../assets/js/sweetAlert.js"> </script>
+<!-- Select Plugin Js -->
+<script src="../../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+<!-- Slimscroll Plugin Js -->
+<script src="../../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+<!-- JQuery Steps Plugin Js -->
+
+<script src="../../../assets/js/pages/forms/form-wizard.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="../../../plugins/node-waves/waves.js"></script>
+
+<!-- Custom Js -->
+<script src="../../../assets/js/admin.js"></script>
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+</body>
+<footer>
+    <p>Eliomar Rodriguez, Andres Fernandez, Stward Perez</p>
+</footer>
+</html>

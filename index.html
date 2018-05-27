@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="userModule">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="plugins/alertify/alertify.js"></script>
+    <link rel="stylesheet" type="text/css" href="plugins/alertify/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="plugins/alertify/css/themes/default.css">
+    <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet" />
+    <!-- JavaScript -->
+    <meta charset="UTF-8">
+</head>
+<body>
+<header>
+    <title>Instant Food Admin</title>
+
+    <a href="#contacto"><img style=" float: left; margin-top: 0%;background-attachment: fixed" width="100px" height="50px;" src="img/jogos/logo_jogos.png" ></a>
+</header>
+    <div class="container" ng-controller="mainController">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-3">
+                <div class="form-login">
+                    <h4>Bienvenido</h4>
+                    <input type="email" id="email" class="form-control input-sm chat-input" placeholder="Correo" ng-model="datos_usuario.correo"/>
+                    </br>
+                    <input type="password" id="pass" class="form-control input-sm chat-input" placeholder="Contraseña" ng-model="datos_usuario.contrasena"/>
+                    </br>
+                    <div class="wrapper">
+                        <span class="group-btn">
+                            <a  class="btn btn-primary btn-md" ng-click="validaEmpresa(datos_usuario)">Login <i class="fa fa-sign-in"></i></a>
+                            <a  class="btn btn-primary btn-md"data-toggle="modal" data-target="#registro" >Registro<i class="fa fa-sign-in"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Register view-->
+    <div id="registro" class="modal fade" role="dialog" ng-controller="mainController">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Registro</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-login">
+
+                        <input type="text" id="cedjur" class="form-control input-sm chat-input" placeholder="Cedula Juridica" ng-model="Empresa.cedulajuridica" required/>
+                        </br>
+                        <input type="text" id="correo" class="form-control input-sm chat-input" placeholder="Correo electronico" ng-model="Empresa.correo" required/>
+                        </br>
+                        <input type="password" id="contra" class="form-control input-sm chat-input" placeholder="Contraseña" ng-model="Empresa.contrasena" required/>
+                        </br>
+                        <input type="text" id="telefono" class="form-control input-sm chat-input" placeholder="Telefono" ng-model="Empresa.telefono" required/>
+                        </br>
+                        <input type="text" id="nombre" class="form-control input-sm chat-input" placeholder="Nombre de empresa" ng-model="Empresa.nombre" required/>
+                        </br>
+                        <input type="text" id="descripcion" class="form-control input-sm chat-input" placeholder="Descripcion de empresa" ng-model="Empresa.descripcion" required/>
+                        </br>
+                        <input type="text" id="provincia" class="form-control input-sm chat-input" placeholder="Provincia" ng-model="Empresa.provincia" required/>
+                        </br>
+                        <input type="text" id="canton" class="form-control input-sm chat-input" placeholder="Canton" ng-model="Empresa.canton" required/>
+                        </br>
+                        <input type="text" id="distrito" class="form-control input-sm chat-input" placeholder="Distrito" ng-model="Empresa.distrito" required/>
+                        </br>
+                        <input type="text" id="direccionexacta" class="form-control input-sm chat-input" placeholder="Direccion exacta" ng-model="Empresa.direccionexacta" required/>
+                        </br>
+                        <div class="wrapper">
+                                <span class="group-btn">
+                                    <a  class="btn btn-primary btn-md" ng-click="registrarEmpresa(Empresa)" data-dismiss="modal">Registrar <i class="fa fa-sign-in"></i></a>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+<script src="app.js"></script>
+<script src="mainController.js"></script>
+<script type="text/javascript" src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="assets/js/sweetAlert.js"> </script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script src="css/style.css"></script>
+</body>
+<footer>
+    <p>Eliomar Rodriguez, Andres Fernandez, Stward Perez</p>
+</footer>
+</html>
