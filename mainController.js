@@ -55,17 +55,18 @@ angular.module('userModule')
      }
 
      $scope.registrarEmpresa=function(empresa){
-        //console.log(empresa);
+        console.log(empresa);
          if(empresa.cedulajuridica.length === 0 | empresa.correo.length === 0 | empresa.contrasena.length === 0 | empresa.telefono.length === 0 |
          empresa.descripcion === 0 | empresa.nombre.length === 0 | empresa.provincia.length === 0 | empresa.canton.length === 0 | empresa.distrito.length === 0 |
              empresa.direccionexacta.length === 0){
+
              mostrarNotificacion("Error, no pueden haber espacios vacios",1);
              return;
          }
          $http({
              method  :'POST',
              url     : urlp+"registrarEmpresa",
-             body: {
+             params: {
                  cedulajuridica: empresa.cedulajuridica,
                  correo: empresa.correo,
                  contrasena: empresa.contrasena,
@@ -88,9 +89,14 @@ angular.module('userModule')
                      mostrarNotificacion("Ha ocurrido un error, verifique los datos que ha ingresado",1);
                  }
              }, function (response) {
-                 console.log(response)
+                 console.log(response);
+                 console.log("ERROR>>>>>")
                  mostrarNotificacion("Revise su conexion a la red",1);
-             });
+             })
+             .catch(function (response){
+                 console.log(">>>>ERROR")
+                 console.log(response)
+             })
      }
 });
 

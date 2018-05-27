@@ -1,20 +1,10 @@
+
 'use strict'
 angular.module('userModule')
     .factory('OperationsProductos',function($http,$location){
         var urlp="http://localhost:5000/";
 
         var respuesta = {
-            /*getCategorias: function(callback){
-            $http.get(
-                urlp+"ObtenertodosCategorias"
-            ).success(function successCallback(response){
-                callback(response);
-            }).error(function errorCallback(response) {
-                mostrarNotificacion("Error de conexion,revise su conexion a Internet",1);
-                //En caso de fallo en la peticion entra en esta funcion
-                callback(response);
-            });
-        },*/
           getProductos: function(producto,callback){
                 $http({
                     method  :'POST',
@@ -28,11 +18,11 @@ angular.module('userModule')
                         mostrarNotificacion("Error de conexion,revise su conexion a Internet",1);
                 });
             },
-            deleteProductos: function(producto,callback){
+            deleteProductos: function(id,callback){
                 $http({
                     method  : 'POST',
                     url     : urlp+"deleteProducto",
-                    data    : producto
+                    data    : {id: id}
 
                 })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
                     .then(function mySuccess(response) {
@@ -48,25 +38,65 @@ angular.module('userModule')
                         callback({success: false});
                     });
             },
-            addProductos: function(producto,callback){
+            addProductos: function(producto,img,callback){
+                function lzw_encode(s) {
+                    var dict = {};
+                    var data = (s + "").split("");
+                    var out = [];
+                    var currChar;
+                    var phrase = data[0];
+                    var code = 256;
+                    for (var i=1; i<data.length; i++) {
+                        currChar=data[i];
+                        if (dict[phrase + currChar] != null) {
+                            phrase += currChar;
+                        }
+                        else {
+                            out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
+                            dict[phrase + currChar] = code;
+                            code++;
+                            phrase=currChar;
+                        }
+                    }
+                    out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
+                    for (var i=0; i<out.length; i++) {
+                        out[i] = String.fromCharCode(out[i]);
+                    }
+                    return out.join("");
+                }
+                var imagen = lzw_encode(img);
                 $http({
                     method  : 'POST',
-                    url     : urlp+"putProducto",
-                    data    : producto
+                    url     : urlp+"insertarProducto",
+                    data    : {
+                    id: sessionStorage.getItem("id"),
+                        producto: producto.producto,
+                        precio: producto.precio,
+                        ingredientes: producto.ingredientes,
+                        categoria: producto.categoria,
+                        cantidadCalorias: producto.cantidadcalorias,
+                        imagen: img
+                }
 
                 })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
-                    .then(function mySuccess(response) {
-                        if(response.data.status){
+                    .then(function (response) {
+                        console.log("=====================");
+                        console.log(response.data.success)
+                        console.log("=====================");
+                        if(response.data.success){
                             mostrarNotificacion("Se agrego con exito",2);
                             callback({success: true});
                         }
                         else{
                             console.log(response);
-                            mostrarNotificacion("Se agrego con exito",2);
+                            mostrarNotificacion("Error en la insercion",1);
                         }
-                    }, function myError(response) {
+                    }, function(response) {
                         mostrarNotificacion("Revise su conexion a Internet",1);
                         callback({success: false});
+                    })
+                    .catch(function (response) {
+                        console.log(response)
                     });
             },
             updateProductos: function(producto,callback){

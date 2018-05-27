@@ -1,4 +1,4 @@
-<div>
+<div style="padding-left: 1%">
     <a class="btn-floating btn-sm " data-toggle="modal" data-target="#add"><i class="material-icons" style="cursor:pointer">add</i></a>
 
     <div class="container-fluid">
@@ -23,7 +23,7 @@
                                 <td >{{producto.categoria}}</td>
                                 <td >{{producto.cantidadcalorias}}</td>
                                 <td>
-                                    <img src={{producto.imagen}} style="border-radius:5px; width: 30%;height: 30%">
+                                    <img src={{producto.imagen}} style="border-radius:5px; width: 80px;height: 80px">
                                 </td>
                                 <td>
                                         <button class="btn btn-primary btn-xs"  data-target="#edit" ng-click="postProducto(producto)">
@@ -33,7 +33,7 @@
                                         </button>
 
                                         <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"ng-click="actualizarProducto(producto)" >
-                                            <span class="glyphicon glyphicon-trash"ng-click="actualizarProducto(producto)">
+                                            <span class="glyphicon glyphicon-trash"ng-click="deleteProducto(producto)">
                                                 Delete
                                             </span>
                                         </button>
@@ -59,25 +59,30 @@
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control " type="text" placeholder="Nombre del producto"ng-model="producto.nombre_producto">
+                                        <input class="form-control " type="text" placeholder="Nombre del producto" ng-model="producto.producto">
                                     </div>
-                                </td>
-                                <td>
                                     <div class="form-group">
                                         <input class="form-control " type="text" placeholder="Precio" ng-model="producto.precio">
                                     </div>
-                                </td>
-                                <td>
                                     <div class="form-group">
-                                        <input class="form-control " type="text" placeholder="Nombre de categoria"ng-model="producto.nombre_categoria">
+                                        <input class="form-control " type="text" placeholder="Ingredientes" ng-model="producto.ingredientes">
                                     </div>
-
+                                    <div class="form-group">
+                                        <input class="form-control " type="text" placeholder="Categoria" ng-model="producto.categoria">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control " type="text" placeholder="Cantidad de calorias" ng-model="producto.cantidadcalorias">
+                                    </div>
+                                    <div class="form-group">
+                                        Imagen: <input class="form-control " type="file" id="imgload" placeholder="Imagen" accept=".jpg,.png,.bmp,.gif,.jpeg" ng-model="producto.imagen" accept="image/*">
+                                        <img src="#" id="imgshow" align="left" style="border-radius:5px; width: 30%;height: 30%" >
+                                    </div>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                         <div class="modal-footer " >
-                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"data-dismiss="modal" aria-hidden="true" ng-click="putProducto(producto)"><span class="glyphicon glyphicon-ok-sign" ng-click="putProducto(producto)" data-dismiss="modal" aria-hidden="true"></span>Agregar producto</button>
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"data-dismiss="modal" aria-hidden="true" ng-click="postProducto(producto)"><span class="glyphicon glyphicon-ok-sign" ng-click="postProducto(producto)" data-dismiss="modal" aria-hidden="true"></span>Agregar producto</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
