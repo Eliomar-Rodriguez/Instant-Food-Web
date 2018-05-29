@@ -8,7 +8,7 @@ angular.module('userModule')
        nombre_categoria: ""
    }
    $scope.producto={
-       id:0,
+       id:"",
        producto:"",
        precio:"",
        ingredientes:"",
@@ -24,10 +24,9 @@ angular.module('userModule')
     //$scope.getCategorias();
 
     $scope.getProductos= function getProductos(){
-        //var categoria=localStorage.getItem("categoria");
-        console.log("ID "+sessionStorage.getItem("id"));
         OperationsProductos.getProductos({id: sessionStorage.getItem("id")},function(res){
             console.log(res);
+            debugger
             $scope.listaProductos = res;
         });
     };
@@ -39,6 +38,19 @@ angular.module('userModule')
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#imgshow').attr('src', e.target.result);
+                    $scope.imagenSAVE = e.target.result;
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+
+    $('document').ready(function () {
+        $("#imgEdit").change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgEditShow').attr('src', e.target.result);
                     $scope.imagenSAVE = e.target.result;
                 };
                 reader.readAsDataURL(this.files[0]);
@@ -66,15 +78,35 @@ angular.module('userModule')
             localStorage.setItem("categoria",selectedOption1.text);
         });*/
     $scope.modificarProducto = function modificarProducto(producto){
-        OperationsProductos.modificarProductos($scope.producto, function(response) {
+        debugger
+        OperationsProductos.modificarProductos(producto,$scope.imagenSAVE,function(response) {
+            console.log(response)
             if (response.success){
+                console.log("modifico");
+                //$location.path('productos');
+                location.reload();
             }
         });
     };
+    $scope.cargarIdEliminar = function (producto) {
+        sessionStorage.setItem("productoId",producto.id);
+    }
+
+    $scope.cargarProducto = function (producto) {
+        sessionStorage.setItem("productoId",producto.id);
+        sessionStorage.setItem("imagenProd",producto.imagen);
+
+        document.getElementById("productoEdit").value = producto.producto;
+        document.getElementById("precioEdit").value = producto.precio;
+        document.getElementById("ingredientesEdit").value = producto.ingredientes;
+        document.getElementById("categoriaEdit").value = producto.categoria;
+        document.getElementById("caloriasEdit").value = producto.cantidadcalorias;
+        document.getElementById("imgEditShow").src = producto.imagen;
+    };
 
     $scope.deleteProducto = function deleteProducto(producto){
-        OperationsProductos.deleteProductos($scope.producto.id, function(response) {
-            console.log(response)
+        OperationsProductos.deleteProductos(producto,function(response) {
+            debugger
             if (response.success){
                 $location.path('productos');
                 $route.reload();

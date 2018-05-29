@@ -2,8 +2,8 @@
 'use strict'
 angular.module('userModule')
     .factory('OperationsProductos',function($http,$location){
+        //var urlp="https://guarded-eyrie-96688.herokuapp.com/";
         var urlp="http://localhost:5000/";
-
         var respuesta = {
           getProductos: function(producto,callback){
                 $http({
@@ -15,61 +15,38 @@ angular.module('userModule')
                         console.log(data.data.data)
                         callback(data.data.data);
                     }).catch(function(data) {
-                        mostrarNotificacion("Error de conexion,revise su conexion a Internet",1);
+                        mostrarNotificacion("Error de conexion, revise su conexion a Internet",1);
                 });
             },
-            deleteProductos: function(id,callback){
+            deleteProductos: function(producto,callback){
                 $http({
                     method  : 'POST',
-                    url     : urlp+"deleteProducto",
-                    data    : {id: id}
+                    url     : urlp+"eliminarProducto",
+                    data    : {id: sessionStorage.getItem("productoId")}
 
-                })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
-                    .then(function mySuccess(response) {
-                        if(response.data.status){
-                            mostrarNotificacion("Se elimino con exito",2);
-                            callback({success: true});
-                        }
-                        else{
-                            mostrarNotificacion("Introduzca los datos de forma correcta",1);
-                        }
-                    }, function myError(response) {
-                        mostrarNotificacion("Revise su conexion a Internet",1);
-                        callback({success: false});
-                    });
+                })
+                .then(function (response) {
+                    if(response.data.success){
+                        mostrarNotificacion("Se elimino con exito",2);
+                        callback({success: true});
+                    }
+                    else{
+                        mostrarNotificacion("Introduzca los datos de forma correcta",1);
+                    }
+                }, function (response) {
+                    mostrarNotificacion("Revise su conexion a Internet",1);
+                    callback({success: false});
+                })
+                .catch(function (response) {
+                    console.log(response)
+                })
             },
             addProductos: function(producto,img,callback){
-                function lzw_encode(s) {
-                    var dict = {};
-                    var data = (s + "").split("");
-                    var out = [];
-                    var currChar;
-                    var phrase = data[0];
-                    var code = 256;
-                    for (var i=1; i<data.length; i++) {
-                        currChar=data[i];
-                        if (dict[phrase + currChar] != null) {
-                            phrase += currChar;
-                        }
-                        else {
-                            out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-                            dict[phrase + currChar] = code;
-                            code++;
-                            phrase=currChar;
-                        }
-                    }
-                    out.push(phrase.length > 1 ? dict[phrase] : phrase.charCodeAt(0));
-                    for (var i=0; i<out.length; i++) {
-                        out[i] = String.fromCharCode(out[i]);
-                    }
-                    return out.join("");
-                }
-                var imagen = lzw_encode(img);
                 $http({
                     method  : 'POST',
                     url     : urlp+"insertarProducto",
                     data    : {
-                    id: sessionStorage.getItem("id"),
+                        id: sessionStorage.getItem("id"),
                         producto: producto.producto,
                         precio: producto.precio,
                         ingredientes: producto.ingredientes,
@@ -77,12 +54,8 @@ angular.module('userModule')
                         cantidadCalorias: producto.cantidadcalorias,
                         imagen: img
                 }
-
                 })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
                     .then(function (response) {
-                        console.log("=====================");
-                        console.log(response.data.success)
-                        console.log("=====================");
                         if(response.data.success){
                             mostrarNotificacion("Se agrego con exito",2);
                             callback({success: true});
@@ -99,54 +72,44 @@ angular.module('userModule')
                         console.log(response)
                     });
             },
-            updateProductos: function(producto,callback){
+            modificarProductos: function(producto,img,callback){
+                debugger
+                if (img.length === 0){
+                    img = sessionStorage.getItem("imagenProd");
+                    if(img.length === 0){
+                        img = document.getElementById('imgEditShow').value
+                    }
+                }
+                console.log(img)
+                debugger
                 $http({
                     method  : 'POST',
-                    url     : urlp+"postProducto",
-                    data    : producto
-
+                    url     : urlp+"editarProducto",
+                    data    : {
+                        id: sessionStorage.getItem("productoId"),
+                        producto: document.getElementById("productoEdit").value,
+                        precio: document.getElementById("precioEdit").value,
+                        ingredientes: document.getElementById("ingredientesEdit").value,
+                        categoria: document.getElementById("categoriaEdit").value,
+                        cantidadCalorias: document.getElementById("caloriasEdit").value,
+                        imagen: img
+                    }
                 })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
-                    .then(function mySuccess(response) {
-                        if(response.data.status){
-                            if(producto.estado==='1'){
-                                mostrarNotificacion("Se cambio el estado a activo con exito",2);
-                            }
-                            else if(producto.estado==='0'){
-                                mostrarNotificacion("Se cambio el estado a inactivo con exito",2);
-                            }
+                    .then(function (response) {
+                        if(response.data.success){
+                            mostrarNotificacion("El producto se ha modificaco correctamente",2);
                             callback({success: true});
                         }
                         else{
-                            mostrarNotificacion("Introduzca los datos de forma correcta",1);
+                            console.log(response);
+                            mostrarNotificacion("No se ha logrado modificar el producto",1);
                         }
-                    }, function myError(response) {
+                    }, function(response) {
                         mostrarNotificacion("Revise su conexion a Internet",1);
                         callback({success: false});
-                    });
-            },
-            modificarProductos: function(producto,callback){
-                $http({
-                    method  : 'POST',
-                    url     : urlp+"postallProducto",
-                    data    : producto
-
-                })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
-                    .then(function mySuccess(response) {
-                        if(response.data.status){
-                            if(producto.estado==='1'){
-                                mostrarNotificacion("Se cambio el estado a activo con exito",2);
-                            }
-                            else if(producto.estado==='0'){
-                                mostrarNotificacion("Se cambio el estado a inactivo con exito",2);
-                            }
-                            callback({success: true});
-                        }
-                        else{
-                            mostrarNotificacion("Introduzca los datos de forma correcta",1);
-                        }
-                    }, function myError(response) {
-                        mostrarNotificacion("Revise su conexion a Internet",1);
-                        callback({success: false});
+                    })
+                    .catch(function (response) {
+                        console.log(response)
                     });
             }
         }

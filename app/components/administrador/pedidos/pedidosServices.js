@@ -1,14 +1,18 @@
 'use strict'
 angular.module('userModule')
     .factory('OperationsPedidos',function($http,$location){
-        var urlp="http://172.24.47.10:8080/JogosPizza/server/pedidos/CRUDpedidos.php?Funcion=";
+        //var urlp="https://guarded-eyrie-96688.herokuapp.com/";
+        var urlp="http://localhost:5000/";
         var respuesta={
             getPedidos: function(callback){
-                $http.get(
-                    urlp+"ObtenertodosPedidos"
-                ).success(function successCallback(response){
-                    callback(response);
-                }).error(function errorCallback(response) {
+                $http({
+                    method  :'POST',
+                    url     : urlp+"obtenerPedidosEmpresa",
+                    params: {id: sessionStorage.getItem("id")}
+                }).then(function (response){
+                    //debugger
+                    callback(response.data.data);
+                }).catch(function (response) {
                     //En caso de fallo en la peticion entra en esta funcion
                     callback(response);
                 });

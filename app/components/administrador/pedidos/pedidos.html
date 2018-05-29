@@ -1,22 +1,25 @@
 <div ng-controller="pedidosController">
-<section class="content" >
+<section class="content" style="padding-left: 3%">
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="pedido in listaPedidos">
                 <div class="card" >
                     <div class="padreparalelos">
                         <div  ng-click="">
-                            <h2 >
-                               Usuario:{{pedido.nombre_usuario}} </small>
-                            </h2>
+                            <h4 style="padding-top: 2%; padding-left: 3%">
+                               Producto: {{pedido.producto}}
+                            </h4>
                         </div>
                     </div>
                     <div class="body">
-                        <div style="float: left;display: inline-block">
-                            {{pedido.fecha}}
-                            <br>
-                            <button data-toggle="modal" data-target="#ModalDetalles" data-dismiss="modal" ng-click="verDetalles(pedido)">Gestionar pedido</button>
-                        </div>
+                        Fecha del pedido: {{pedido.fecha}}<br>
+                        Cantidad: {{pedido.cantidad}}<br>
+                        Total: ¢ {{pedido.preciofinal}}
+                        <br><br>
+                        <button class="btn btn-primary" data-dismiss="modal" data-target="#ModalDetalles" ng-click="verDetalles(pedido)" data-toggle="modal">
+                            <i class="material-icons">list</i>
+                            <span ng-click="verDetalles(pedido)"><b>Gestionar pedido</b></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -29,7 +32,7 @@
     <div class="modal-dialog" role="document">
         <form class="modal-content"  >
             <div class="modal-header bagTecBlue">
-                <h4 class=" whiteText" id="ModalVerDetalles">Gestion de pedido</h4>
+                <h4 class=" whiteText" id="ModalVerDetalles">Gestión del pedido</h4>
             </div>
             <div class="modal-body" >
                 <div class="container-fluid">
@@ -44,15 +47,15 @@
                                     <th id="subtotal">Subtotal</th>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="detalle in listaDetalles">
-                                        <td >{{detalle.nombre_producto}}</td>
-                                        <td>{{detalle.nombre_categoria}}</td>
+                                    <tr ng-repeat="pedido in listaPedidos">
+                                        <td >{{pedido.producto}}</td>
+                                        <td>{{pedido}}</td>
                                         <td>{{detalle.cantidad}}</td>
                                         <td>{{detalle.total}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
-                                <b>Total:</b>{{total}}
+                                <b>Total:</b>{{producto.preciofinal}}
                             </div>
                         </div>
                     </div>

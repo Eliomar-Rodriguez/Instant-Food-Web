@@ -7,6 +7,7 @@
                 <div class="table table-responsive table-advance table-hover">
                     <table id="mytable" class="table table-bordred table-striped">
                         <thead style="background-color: #AEB6BF">
+
                             <th id="name">Nombre</th>
                             <th id="price">Precio</th>
                             <th id="ingredientes">Ingredientes</th>
@@ -26,14 +27,14 @@
                                     <img src={{producto.imagen}} style="border-radius:5px; width: 80px;height: 80px">
                                 </td>
                                 <td>
-                                        <button class="btn btn-primary btn-xs"  data-target="#edit" ng-click="postProducto(producto)">
-                                            <span class="glyphicon glyphicon-pencil" ng-click="postProducto(producto)">
+                                        <button class="btn btn-primary btn-xs"  data-toggle="modal" ng-click="cargarProducto(producto)" data-target="#edit">
+                                            <span class="glyphicon glyphicon-pencil" >
                                                 Editar
                                             </span>
                                         </button>
 
-                                        <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"ng-click="actualizarProducto(producto)" >
-                                            <span class="glyphicon glyphicon-trash"ng-click="deleteProducto(producto)">
+                                        <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" ng-click="cargarIdEliminar(producto)"  data-target="#delete">
+                                            <span class="glyphicon glyphicon-trash">
                                                 Delete
                                             </span>
                                         </button>
@@ -99,28 +100,36 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                         <h4 class="modal-title custom_align" id="Headin">Modificar el producto</h4>
                     </div>
-                    <div class="modal-body" >
+                    <div class="modal-body" ng-controller="productosController">
                         <table class="table table-responsive table-advance table-hover">
                             <tbody>
                             <tr>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control " type="text" placeholder="producto.precio" ng-model="producto.precio">
+                                        <input class="form-control " id="productoEdit" type="text" placeholder="Nombre del producto" ng-model="producto.producto">
                                     </div>
-                                </td>
-                                <td>
-                                    <select id="s_cate_m">
-                                        <option ng-repeat="categoria in listaCategorias" value="{{categoria.nombre_categoria}}">
-                                            {{categoria.nombre_categoria}}
-                                        </option>
-                                    </select>
-
+                                    <div class="form-group">
+                                        <input class="form-control " id="precioEdit" type="number" placeholder="Precio" ng-model="producto.precio">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control " id="ingredientesEdit" type="text" placeholder="Ingredientes" ng-model="producto.ingredientes">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control " id="categoriaEdit" type="text" placeholder="Categoria" ng-model="producto.categoria">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control " id="caloriasEdit" type="number" placeholder="Cantidad de calorias" ng-model="producto.cantidadcalorias">
+                                    </div>
+                                    <div class="form-group">
+                                        Imagen: <input class="form-control " type="file" id="imgEdit" placeholder="Imagen" accept=".jpg,.png,.bmp,.gif,.jpeg" ng-model="producto.imagen" accept="image/*">
+                                        <img src="#" id="imgEditShow" align="left" style="border-radius:5px; width: 30%;height: 30%" >
+                                    </div>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                         <div class="modal-footer " >
-                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"data-dismiss="modal" aria-hidden="true" ng-click="modificarProducto(producto)"><span class="glyphicon glyphicon-ok-sign" ng-click="modificarProducto(producto)" data-dismiss="modal" aria-hidden="true"></span>Modificar</button>
+                            <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"data-dismiss="modal" aria-hidden="true" ng-click="modificarProducto(producto)"><span class="glyphicon glyphicon-ok-sign" ng-click="modificarProducto(producto)" data-dismiss="modal" aria-hidden="true"></span>Agregar producto</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
@@ -142,7 +151,7 @@
 
                     </div>
                     <div class="modal-footer ">
-                        <button type="button" class="btn btn-primary"  data-dismiss="modal"ng-click="deleteProducto(producto)"><span  ng-click="deleteProducto(producto)"class="glyphicon glyphicon-ok-sign"data-dismiss="modal"></span>Si</button>
+                        <button type="button" class="btn btn-primary"  data-dismiss="modal"ng-click="deleteProducto()"><span class="glyphicon glyphicon-ok-sign"data-dismiss="modal"></span>Si</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"data-dismiss="modal"></span>No</button>
                     </div>
                 </div>
