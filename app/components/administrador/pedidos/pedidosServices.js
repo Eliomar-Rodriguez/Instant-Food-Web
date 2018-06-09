@@ -9,10 +9,11 @@ angular.module('userModule')
                     method  :'POST',
                     url     : urlp+"obtenerPedidosEmpresa",
                     params: {id: sessionStorage.getItem("id")}
-                }).then(function (response){
-                    //debugger
+                })
+                    .then(function (response){
                     callback(response.data.data);
-                }).catch(function (response) {
+                })
+                    .catch(function (response) {
                     //En caso de fallo en la peticion entra en esta funcion
                     callback(response);
                 });
@@ -20,54 +21,48 @@ angular.module('userModule')
             getDetalles: function(pedido,callback){
                 $http({
                     method  :'POST',
-                    url     : urlp+"ObtenertodosDetalles",
-                    data    : pedido
+                    url     : urlp+"detallesPedido",
+                    data    : {id: pedido.idpedido}
                 })
-                    .success(function(data){
+                    .then(function(data){
+                        console.log(data)
                         callback(data);
-                    }).error(function(data){
-
+                    })
+                    .catch(function(data){
+                        callback(data);
                 });
             },
-            aceptaPedido:function(pedido,callback){
+            aceptaRechazaPedido:function(id,estado,callback){
                 $http({
                     method  : 'POST',
-                    url     : urlp+"updatePedidos",
-                    data    : pedido
+                    url     : urlp+"acepRechaPedido",
+                    data    : {
+                        id: id,
+                        estado: estado
+                    }
 
                 })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
-                    .then(function mySuccess(response) {
-                        if(response.data.status){
-                            mostrarNotificacion("Se acepto con exito",2);
+                    .then(function (response) {
+
+                        if(response.data.success){
+                            if(estado == 1)
+                                mostrarNotificacion("Pedido aceptado!",2);
+                            else
+                                mostrarNotificacion("El pedido a sido rechazado.",2);
                             callback({success: true});
                         }
                         else{
-                            mostrarNotificacion("Error en el sistema",1);
+                            mostrarNotificacion("Error en el sistema.",1);
                         }
-                    }, function myError(response) {
-                        mostrarNotificacion("Revise su conexion a Internet",1);
+                    }, function (response) {
+                        mostrarNotificacion("Revise su conexión a Internet.",1);
                         callback({success: false});
-                    });
-            },
-            rechazaPedido:function(pedido,callback){
-                $http({
-                    method  : 'POST',
-                    url     : urlp+"updatePedidosR",
-                    data    : pedido
-                })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
-                    .then(function mySuccess(response){
-                        if(response.data.status){
-                            mostrarNotificacion("Se rechazo el pedido con exito",2);
-                            callback({success: true});
-                        }
-                        else{
-                            mostrarNotificacion("Error en el sistema",1);
-                        }
-                    },function myError(response) {
-                        mostrarNotificacion("Revise su conexion a Internet",1);
+                    })
+                    .catch(function (error) {
+                        //console.log(error);
                         callback({success: false});
-                    });
+                    })
             }
-        }
+        };
         return respuesta;
     });

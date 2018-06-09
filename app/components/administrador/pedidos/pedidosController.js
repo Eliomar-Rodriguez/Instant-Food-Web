@@ -3,16 +3,15 @@
 angular.module('userModule')
 .controller('pedidosController',function($scope,OperationsPedidos,$location,$route){
     $scope.pedido={
-        id:'',
-        producto:'',
-        estado:'',
+        idpedido:'',
         fecha:'',
         cantidad:'',
-        imagen:'',
         latitud:'',
         longitud:'',
         preciofinal:''
     };
+    $scope.total = 0;
+
     $scope.getPedidos= function getPedidos(){
         OperationsPedidos.getPedidos(function(res){
             var diaF,mesF,anoF;
@@ -49,38 +48,34 @@ angular.module('userModule')
     $scope.verResultado=function(){
         console.log($scope.pedido);
     }
-
+    $scope.initMap = function (lat,lng) {
+        var uluru = {lat: lat, lng: lng};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    };
     $scope.verDetalles=function verDetalles(pedido){
-        console.log(pedido)
-        debugger
         $scope.pedido=pedido;
         OperationsPedidos.getDetalles(pedido,function(res){
-            $scope.listaDetalles=res;
-
+            console.log("=======data=========")
+            console.log(res)
+            $scope.listaDetalles=res.data.data;
+            debugger
+            $scope.initMap(pedido.latitud,pedido.longitud)
         });
     }
-    $scope.modificarPedido=function modificarPedido(estado){
-        if(estado===1){
-            OperationsPedidos.aceptaPedido({estado:estado.toString(),id_pedido:$scope.pedido.id_pedido}, function(res){
-                if (res.success) {
-                    $location.path('pedidos')
-                    $route.reload();
-                }
-            });
-        }else{
-            var text="";
-            alertify.prompt( 'Prompt Title', 'Prompt Message', 'Prompt Value'
-                , function(evt, value) { alertify.success('You entered: ' + value);
-                    text=value;
-                    console.log({estado:estado,id_pedido:$scope.pedido.id_pedido,detalle:text});
-                    OperationsPedidos.rechazaPedido({estado:estado,id_pedido:$scope.pedido.id_pedido,detalle:text}, function(res){
-                        if (res.success) {
-                            $location.path('pedidos')
-                            $route.reload();
-                        }
-                    });}
-                , function() { alertify.error('Cancel') });
-        }
+    $scope.aceptaoRechazaPedido = function aceptaPedido(elemento, estado){
+        OperationsPedidos.aceptaRechazaPedido(elemento.idpedido,estado, function(res){
+            if (res.success) {
+                $location.path('pedidos')
+                $route.reload();
+            }
+            else{
+                mostrarNotificacion("Error en la operacion realizada.",1);
+            }
+        });
     }
     $scope.getPedidos();
 });
