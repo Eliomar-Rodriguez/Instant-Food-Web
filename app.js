@@ -7,15 +7,12 @@ angular.module('userModule', ['ngRoute'])
             }).when("/productos", {
                 templateUrl: 'productos/productos.html',
                 controller: 'productosController'
-            }).when("/productosc", {
-                templateUrl: 'productos/productos.html',
-                controller: 'productoscController'
-            }).when("/perfil", {
-                templateUrl: 'perfil/perfil.html',
-                controller: 'compradorController'
+            }).when("/inicio", {
+            templateUrl: 'index.html',
+            controller: 'mainController'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/inicio'
             });
     }
     ]);

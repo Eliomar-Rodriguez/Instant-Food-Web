@@ -18,8 +18,6 @@ angular.module('userModule')
     $scope.datos_usuario={
         correo: "",
         contrasena: ""
-        // correo: document.getElementById('email').value,
-        // contrasena: document.getElementById('pass').value
     };
 
     $scope.validaEmpresa=function(datos_usuario){
@@ -32,8 +30,6 @@ angular.module('userModule')
             }
         })// si la insercion fue exitosa entra al succes de lo contrario retorna un error de parte del servidor
             .then(function (response) {
-                console.log(response)
-
                 if(response.data.success){
                     sessionStorage.setItem("id",response.data.data.id);
                     sessionStorage.setItem("nombre",response.data.data.nombre);
@@ -47,17 +43,16 @@ angular.module('userModule')
             }, function (response) {
                 console.log(response.data);
             })
-            .catch(
-                console.log("Error")
-            )
-     }
+            .catch(function (error) {
+                    console.log(error)
+            })
+     };
 
      $scope.registrarEmpresa=function(empresa){
         console.log(empresa);
          if(empresa.cedulajuridica.length === 0 | empresa.correo.length === 0 | empresa.contrasena.length === 0 | empresa.telefono.length === 0 |
          empresa.descripcion === 0 | empresa.nombre.length === 0 | empresa.provincia.length === 0 | empresa.canton.length === 0 | empresa.distrito.length === 0 |
              empresa.direccionexacta.length === 0){
-
              mostrarNotificacion("Error, no pueden haber espacios vacios",1);
              return;
          }
@@ -79,7 +74,6 @@ angular.module('userModule')
          })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
              .then(function (response){
                  if(response.data.success){
-                     console.log("TRUE")
                      mostrarNotificacion("Empresa registrada con exito",2);
                  }
                  else{
@@ -87,12 +81,9 @@ angular.module('userModule')
                      mostrarNotificacion("Ha ocurrido un error, verifique los datos que ha ingresado",1);
                  }
              }, function (response) {
-                 console.log(response);
-                 console.log("ERROR>>>>>")
                  mostrarNotificacion("Revise su conexion a la red",1);
              })
              .catch(function (response){
-                 console.log(">>>>ERROR")
                  console.log(response)
              })
      }

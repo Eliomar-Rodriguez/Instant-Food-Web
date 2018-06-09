@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6cc5af-f4d7-40f4-a762-b6ee37ede6d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/jogos/logo_jogos.png" afterPath="$PROJECT_DIR$/img/jogos/logo_jogos.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainController.js" afterPath="$PROJECT_DIR$/mainController.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,19 +19,21 @@
       <file leaf-file-name="administrador.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/administrador/administrador.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="63" />
+            <state relative-caret-position="1159">
+              <caret line="61" column="26" lean-forward="false" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="17" column="133" lean-forward="false" selection-start-line="17" selection-start-column="128" selection-end-line="17" selection-end-column="133" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,17 +59,27 @@
         <entry file="file://$PROJECT_DIR$/app/components/administrador/productos/productos.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="741">
-              <caret line="39" column="45" lean-forward="true" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+              <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mainController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="50" />
+            <state relative-caret-position="184">
+              <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -78,13 +92,6 @@
               <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.ico" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/administrador/main.ico">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -102,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/app/components/administrador/pedidos/pedidos.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="21" column="37" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="21" selection-end-column="37" />
+              <caret line="21" column="37" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="21" selection-end-column="37" />
               <folding>
                 <element signature="n#style#0;n#section#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
@@ -137,6 +144,8 @@
       <find>fil</find>
       <find>deb</find>
       <find>Categoria</find>
+      <find>err</find>
+      <find>jogos</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -179,7 +188,6 @@
         <option value="$PROJECT_DIR$/app/components/comprador/productos/productoscController.js" />
         <option value="$PROJECT_DIR$/app/components/comprador/perfil/compradorController.js" />
         <option value="$PROJECT_DIR$/app/components/comprador/productos/productoscServices.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
         <option value="$PROJECT_DIR$/assets/css/login.css" />
         <option value="$USER_HOME$/Desktop/index.html" />
@@ -188,19 +196,27 @@
         <option value="$PROJECT_DIR$/app/components/administrador/pedidos/pedidosServices.js" />
         <option value="$PROJECT_DIR$/app/components/administrador/productos/productosServices.js" />
         <option value="$PROJECT_DIR$/app/components/administrador/pedidos/pedidosController.js" />
-        <option value="$PROJECT_DIR$/mainController.js" />
         <option value="$PROJECT_DIR$/app/components/administrador/load.js" />
         <option value="$PROJECT_DIR$/app/components/administrador/productos/productosController.js" />
         <option value="$PROJECT_DIR$/app/components/administrador/administrador.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/app/components/administrador/pedidos/pedidos.html" />
         <option value="$PROJECT_DIR$/app/components/administrador/productos/productos.html" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/mainController.js" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -227,30 +243,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="JogosPizza" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JogosPizza" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JogosPizza" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JogosPizza" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JogosPizza" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JogosPizza" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JogosPizza" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JogosPizza" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="jogos" type="462c0819:PsiDirectoryNode" />
+              <item name="InstantFoodCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="InstantFoodCR" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -260,11 +260,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.html" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.vagrant" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
@@ -363,7 +363,7 @@
       <method />
     </configuration>
     <configuration name="comprador.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JogosPizza/app/components/clientes/comprador.html" />
-    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JogosPizza/index.html" />
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/InstantFoodCR/index.html" />
     <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" engineId="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" uri="http://localhost:63342/JogosPizza/index.html" />
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.comprador.html" />
@@ -435,18 +435,18 @@
       <workItem from="1528526228092" duration="4862000" />
       <workItem from="1528531202514" duration="1159000" />
       <workItem from="1528532423065" duration="3913000" />
-      <workItem from="1528572444882" duration="6000" />
+      <workItem from="1528572444882" duration="1323000" />
+      <workItem from="1528573856892" duration="88000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412243000" />
+    <option name="totallyTimeSpent" value="413648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1716693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1716693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -619,13 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -665,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,14 +683,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="38" column="50" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/administrador/load.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -714,18 +698,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/administrador/productos/productosController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/administrador/pedidos/pedidos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="21" column="37" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="21" selection-end-column="37" />
+          <caret line="21" column="37" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="21" selection-end-column="37" />
           <folding>
             <element signature="n#style#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
@@ -739,14 +715,9 @@
     <entry file="file://$PROJECT_DIR$/app/components/administrador/productos/productos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
-          <caret line="39" column="45" lean-forward="true" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
+          <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/jogos/logo_jogos.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -757,18 +728,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/jogos/logo_jogos.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/administrador/administrador.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="63" />
+        <state relative-caret-position="1159">
+          <caret line="61" column="26" lean-forward="false" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/administrador/productos/productosController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3" column="44" lean-forward="false" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        <state relative-caret-position="323">
+          <caret line="17" column="133" lean-forward="false" selection-start-line="17" selection-start-column="128" selection-end-line="17" selection-end-column="133" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="51" column="20" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="20" />
           <folding />
         </state>
       </provider>
