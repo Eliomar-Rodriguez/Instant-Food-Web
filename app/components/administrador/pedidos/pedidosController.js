@@ -48,11 +48,11 @@ angular.module('userModule')
     $scope.verResultado=function(){
         console.log($scope.pedido);
     }
-    $scope.initMap = function (lat,lng) {
+    $scope.mostrarMapa = function (lat,lng) {
         var uluru = {lat: lat, lng: lng};
         // The map, centered at Uluru
         var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 4, center: uluru});
+            document.getElementById('map'), {zoom: 15, center: uluru});
         // The marker, positioned at Uluru
         var marker = new google.maps.Marker({position: uluru, map: map});
     };
@@ -63,7 +63,7 @@ angular.module('userModule')
             console.log(res)
             $scope.listaDetalles=res.data.data;
             debugger
-            $scope.initMap(pedido.latitud,pedido.longitud)
+            $scope.mostrarMapa(pedido.latitud,pedido.longitud)
         });
     }
     $scope.aceptaoRechazaPedido = function aceptaPedido(elemento, estado){

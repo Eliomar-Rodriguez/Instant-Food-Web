@@ -1,103 +1,89 @@
 <div ng-controller="pedidosController">
-<section class="content" style="padding-left: 3%">
-    <div class="container-fluid">
-        <div class="row clearfix">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="pedido in listaPedidos">
-                <div class="card" >
-                    <div class="padreparalelos">
-                        <div  ng-click="">
-                            <h4 style="padding-top: 2%; padding-left: 3%">
-                               Pedido # {{pedido.idpedido}}
-                            </h4>
+    <section class="content" style="padding-left: 3%">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="pedido in listaPedidos">
+                    <div class="card" >
+                        <div class="padreparalelos">
+                            <div  ng-click="">
+                                <h4 style="padding-top: 2%; padding-left: 3%">
+                                   Pedido # {{pedido.idpedido}}
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="body">
+                            Fecha del pedido: {{pedido.fecha}}<br>
+                            Cantidad de productos: ¢ {{pedido.cantidad}}<br>
+                            Total: ¢ {{pedido.preciofinal}}
+                            <br><br>
+                            <button class="btn btn-primary" data-dismiss="modal" data-target="#ModalDetalles" ng-click="verDetalles(pedido)" data-toggle="modal">
+                                <i class="material-icons">list</i>
+                                <span><b>Gestionar pedido</b></span>
+                            </button>
                         </div>
                     </div>
-                    <div class="body">
-                        Fecha del pedido: {{pedido.fecha}}<br>
-                        Cantidad de productos: ¢ {{pedido.cantidad}}<br>
-                        Total: ¢ {{pedido.preciofinal}}
-                        <br><br>
-                        <button class="btn btn-primary" data-dismiss="modal" data-target="#ModalDetalles" ng-click="verDetalles(pedido)" data-toggle="modal">
-                            <i class="material-icons">list</i>
-                            <span><b>Gestionar pedido</b></span>
-                        </button>
+                </div>
+                <!-- #END# Task Info -->
+                <!-- Browser Usage -->
+            </div>
+        </div>
+    </section>
+    <div class="modal fade modal-margin" id="ModalDetalles" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <form class="modal-content"  >
+                <div class="modal-header bagTecBlue">
+                    <h4 class=" whiteText" id="ModalVerDetalles">Gestión del pedido</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="table table-responsive table-advance table-hover">
+                                    <table id="mytablep" class="table-responsive table-bordred table-striped" style="overflow: auto; width: 200px; height: 200px;">
+                                        <thead>
+                                        <th id="nombre_product">Nombre del producto</th>
+                                        <th id="ingredientes">Ingredientes</th>
+                                        <th id="categoria">Categoria</th>
+                                        <th id="calorias">Cantidad calorias</th>
+                                        <th id="subtotal">Subtotal</th>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="detalle in listaDetalles">
+                                            <td >{{detalle.producto}}</td>
+                                            <td >{{detalle.ingredientes}}</td>
+                                            <td >{{detalle.categoria}}</td>
+                                            <td >{{detalle.cantidadcalorias}}</td>
+                                            <td>{{detalle.precio}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <b>Total: </b>{{pedido.preciofinal}}
+                            </div>
+                        </div>
+                        <div>
+                            <b>
+                                <br>
+                                <i class="material-icons">location_on</i>
+                                <span><b>Lugar de entrega del pedido</b></span>
+                                <br>
+                                <div id="map" style="height: 400px; width: 100%"></div>
+                            </b>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- #END# Task Info -->
-            <!-- Browser Usage -->
+                <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="aceptaoRechazaPedido(pedido,1)" data-dismiss="modal">
+                        <i class="material-icons">done</i>
+                        <span><b>Aceptar pedido</b></span>
+                    </button>
+
+                    <button class="btn btn-danger" ng-click="aceptaoRechazaPedido(pedido,2)" data-dismiss="modal">
+                        <i class="material-icons">clear</i>
+                        <span><b>Rechazar pedido</b></span>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-</section>
-<div class="modal fade modal-margin" id="ModalDetalles" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <form class="modal-content"  >
-            <div class="modal-header bagTecBlue">
-                <h4 class=" whiteText" id="ModalVerDetalles">Gestión del pedido</h4>
-            </div>
-            <div class="modal-body" >
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table table-responsive table-advance table-hover">
-                                <table id="mytablep" class="table-responsive table-bordred table-striped" style="overflow: auto; width: 200px; height: 200px;">
-                                    <thead>
-                                    <th id="nombre_product">Nombre del producto</th>
-                                    <th id="ingredientes">Ingredientes</th>
-                                    <th id="categoria">Categoria</th>
-                                    <th id="calorias">Cantidad calorias</th>
-                                    <th id="subtotal">Subtotal</th>
-                                    </thead>
-                                    <tbody>
-                                    <tr ng-repeat="detalle in listaDetalles">
-                                        <td >{{detalle.producto}}</td>
-                                        <td >{{detalle.ingredientes}}</td>
-                                        <td >{{detalle.categoria}}</td>
-                                        <td >{{detalle.cantidadcalorias}}</td>
-                                        <td>{{detalle.precio}}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <b>Total: </b>{{pedido.preciofinal}}
-                        </div>
-                    </div>
-                    <div>
-                        <b>
-                            <br>
-                            <i class="material-icons">location_on</i>
-                            <span><b>Lugar de entrega del pedido</b></span>
-                            <br>
-                            <div id="map" style="height: 400px; width: 100%;"></div>
-
-                            <script>
-                                function initMap() {
-                                    // The location of Uluru
-                                    var lat = -25.344;
-                                    var lng = 131.036;
-                                    var uluru = {lat: lat, lng: lng};
-                                    // The map, centered at Uluru
-                                    var map = new google.maps.Map(
-                                        document.getElementById('map'), {zoom: 4, center: uluru});
-                                    // The marker, positioned at Uluru
-                                    var marker = new google.maps.Marker({position: uluru, map: map});
-                                }
-                            </script>
-                        </b>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" ng-click="aceptaoRechazaPedido(pedido,1)" data-dismiss="modal">
-                    <i class="material-icons">done</i>
-                    <span><b>Aceptar pedido</b></span>
-                </button>
-
-                <button class="btn btn-danger" ng-click="aceptaoRechazaPedido(pedido,2)" data-dismiss="modal">
-                    <i class="material-icons">clear</i>
-                    <span><b>Rechazar pedido</b></span>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 </div>
