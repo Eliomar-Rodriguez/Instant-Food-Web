@@ -35,8 +35,6 @@ angular.module('userModule')
                 console.log(response)
 
                 if(response.data.success){
-                    console.log("MESSAGE")
-
                     sessionStorage.setItem("id",response.data.data.id);
                     sessionStorage.setItem("nombre",response.data.data.nombre);
                     mostrarNotificacion(response.data.message,2);

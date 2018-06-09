@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="pedido in listaPedidos">
-                    <div class="card" >
+                    <div class="card" style="border-radius: 5px">
                         <div class="padreparalelos">
                             <div  ng-click="">
                                 <h4 style="padding-top: 2%; padding-left: 3%">
@@ -13,8 +13,8 @@
                         </div>
                         <div class="body">
                             Fecha del pedido: {{pedido.fecha}}<br>
-                            Cantidad de productos: ¢ {{pedido.cantidad}}<br>
-                            Total: ¢ {{pedido.preciofinal}}
+                            Cantidad de productos: {{pedido.cantidad}}<br>
+                            Total: ¢{{pedido.preciofinal}}
                             <br><br>
                             <button class="btn btn-primary" data-dismiss="modal" data-target="#ModalDetalles" ng-click="verDetalles(pedido)" data-toggle="modal">
                                 <i class="material-icons">list</i>
@@ -43,8 +43,8 @@
                                         <thead>
                                         <th id="nombre_product">Nombre del producto</th>
                                         <th id="ingredientes">Ingredientes</th>
-                                        <th id="categoria">Categoria</th>
-                                        <th id="calorias">Cantidad calorias</th>
+                                        <th id="categoria">Categoría</th>
+                                        <th id="calorias">Cantidad calorías</th>
                                         <th id="subtotal">Subtotal</th>
                                         </thead>
                                         <tbody>
