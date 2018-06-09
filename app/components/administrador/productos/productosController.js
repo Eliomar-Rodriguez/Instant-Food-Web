@@ -26,7 +26,6 @@ angular.module('userModule')
     $scope.getProductos= function getProductos(){
         OperationsProductos.getProductos({id: sessionStorage.getItem("id")},function(res){
             console.log(res);
-            debugger
             $scope.listaProductos = res;
         });
     };
@@ -78,12 +77,11 @@ angular.module('userModule')
             localStorage.setItem("categoria",selectedOption1.text);
         });*/
     $scope.modificarProducto = function modificarProducto(producto){
-        debugger
         OperationsProductos.modificarProductos(producto,$scope.imagenSAVE,function(response) {
             console.log(response)
             if (response.success){
                 console.log("modifico");
-                //$location.path('productos');
+                $location.path('productos');
                 location.reload();
             }
         });
@@ -106,7 +104,6 @@ angular.module('userModule')
 
     $scope.deleteProducto = function deleteProducto(producto){
         OperationsProductos.deleteProductos(producto,function(response) {
-            debugger
             if (response.success){
                 $location.path('productos');
                 $route.reload();

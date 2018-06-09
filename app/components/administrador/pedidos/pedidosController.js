@@ -59,10 +59,7 @@ angular.module('userModule')
     $scope.verDetalles=function verDetalles(pedido){
         $scope.pedido=pedido;
         OperationsPedidos.getDetalles(pedido,function(res){
-            console.log("=======data=========")
-            console.log(res)
             $scope.listaDetalles=res.data.data;
-            debugger
             $scope.mostrarMapa(pedido.latitud,pedido.longitud)
         });
     }
