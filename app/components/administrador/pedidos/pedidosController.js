@@ -52,7 +52,7 @@ angular.module('userModule')
         var uluru = {lat: lat, lng: lng};
         // The map, centered at Uluru
         var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 15, center: uluru});
+            document.getElementById('map'), {zoom: 16.9, center: uluru});
         // The marker, positioned at Uluru
         var marker = new google.maps.Marker({position: uluru, map: map});
     };

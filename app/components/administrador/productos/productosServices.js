@@ -2,8 +2,8 @@
 'use strict'
 angular.module('userModule')
     .factory('OperationsProductos',function($http,$location){
-        var urlp="https://guarded-eyrie-96688.herokuapp.com/";
-        //var urlp="http://localhost:5000/";
+        //var urlp="https://guarded-eyrie-96688.herokuapp.com/";
+        var urlp="http://localhost:5000/";
         var respuesta = {
           getProductos: function(producto,callback){
                 $http({
@@ -12,7 +12,6 @@ angular.module('userModule')
                     params: {id: producto.id}
                 })
                     .then(function(data){
-                        console.log(data.data.data)
                         callback(data.data.data);
                     }).catch(function(data) {
                         mostrarNotificacion("Error de conexion, revise su conexion a Internet",1);
@@ -61,7 +60,6 @@ angular.module('userModule')
                             callback({success: true});
                         }
                         else{
-                            console.log(response);
                             mostrarNotificacion("Error en la insercion",1);
                         }
                     }, function(response) {
@@ -80,7 +78,6 @@ angular.module('userModule')
                         img = document.getElementById('imgEditShow').value
                     }
                 }
-                console.log(img)
                 debugger
                 $http({
                     method  : 'POST',
@@ -101,7 +98,6 @@ angular.module('userModule')
                             callback({success: true});
                         }
                         else{
-                            console.log(response);
                             mostrarNotificacion("No se ha logrado modificar el producto",1);
                         }
                     }, function(response) {

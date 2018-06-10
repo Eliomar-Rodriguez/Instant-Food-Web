@@ -1,8 +1,8 @@
 'use strict'
 angular.module('userModule')
     .factory('OperationsPedidos',function($http,$location){
-        var urlp="https://guarded-eyrie-96688.herokuapp.com/";
-        //var urlp="http://localhost:5000/";
+        //var urlp="https://guarded-eyrie-96688.herokuapp.com/";
+        var urlp="http://localhost:5000/";
         var respuesta={
             getPedidos: function(callback){
                 $http({
@@ -25,7 +25,6 @@ angular.module('userModule')
                     data    : {id: pedido.idpedido}
                 })
                     .then(function(data){
-                        console.log(data)
                         callback(data);
                     })
                     .catch(function(data){
