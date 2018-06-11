@@ -28,7 +28,7 @@
         </div>
     </section>
     <div class="modal fade" id="ModalDetalles" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <form class="modal-content"  >
                 <div class="modal-header bagTecBlue">
                     <h4 class=" whiteText" id="ModalVerDetalles">Gestión del pedido</h4>
@@ -45,6 +45,7 @@
                                         <th id="categoria">Categoría</th>
                                         <th id="calorias">Cantidad calorías</th>
                                         <th id="cantidad">Cantidad</th>
+                                        <th id="precio">Precio</th>
                                         <th id="subtotal">Subtotal</th>
                                         </thead>
                                         <tbody>
@@ -55,6 +56,7 @@
                                             <td >{{detalle.cantidadcalorias}}</td>
                                             <td >{{detalle.cantidad}}</td>
                                             <td>{{detalle.precio}}</td>
+                                            <td>{{detalle.precio * detalle.cantidad}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
