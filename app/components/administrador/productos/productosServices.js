@@ -2,8 +2,8 @@
 'use strict'
 angular.module('userModule')
     .factory('OperationsProductos',function($http,$location){
-        var urlp="https://guarded-eyrie-96688.herokuapp.com/";
-        //var urlp="http://localhost:5000/";
+        //var urlp="https://guarded-eyrie-96688.herokuapp.com/";
+        var urlp="http://localhost:5000/";
         var respuesta = {
           getProductos: function(producto,callback){
                 $http({
@@ -56,14 +56,14 @@ angular.module('userModule')
                 })// si la insercion fue exitosa entra al succes de lo contrario retorna un error departe del servidor
                     .then(function (response) {
                         if(response.data.success){
-                            mostrarNotificacion("Se agrego con exito",2);
+                            mostrarNotificacion("Se agregó con exito",2);
                             callback({success: true});
                         }
                         else{
-                            mostrarNotificacion("Error en la insercion",1);
+                            mostrarNotificacion("Error en la inserción",1);
                         }
                     }, function(response) {
-                        mostrarNotificacion("Revise su conexion a Internet",1);
+                        mostrarNotificacion("Revise su conexión a Internet, o verifique que la imagen no tenga una resolución muy grande.",1);
                         callback({success: false});
                     })
                     .catch(function (response) {
