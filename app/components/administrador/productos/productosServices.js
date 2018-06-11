@@ -2,8 +2,8 @@
 'use strict'
 angular.module('userModule')
     .factory('OperationsProductos',function($http,$location){
-        //var urlp="https://guarded-eyrie-96688.herokuapp.com/";
-        var urlp="http://localhost:5000/";
+        var urlp="https://guarded-eyrie-96688.herokuapp.com/";
+        //var urlp="http://localhost:5000/";
         var respuesta = {
           getProductos: function(producto,callback){
                 $http({
